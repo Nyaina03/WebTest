@@ -1,0 +1,11 @@
+<web-app>
+    <servlet>
+        <servlet-name>myFrontServlet</servlet-name>
+        <servlet-class>com.monsite.servlet.MyFrontServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>myFrontServlet</servlet-name>
+        <url-pattern>*</url-pattern>
+    </servlet-mapping>
+</web-app>
