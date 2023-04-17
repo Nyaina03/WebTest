@@ -1,16 +1,18 @@
 package model;
+
 import mapping.Mapping;
 import java.util.HashMap;
 import java.lang.reflect.Method;
 
 public class ModelView {
     private String view;
+    private HashMap<String, Object> data = new HashMap<String, Object>();
 
-    public String getview() {
+    public String getView() {
         return this.view;
     }
 
-    public void setview(String view) {
+    public void setView(String view) {
         this.view = view;
     }
 
@@ -23,7 +25,7 @@ public class ModelView {
             try {
                 valeurRetour = (String) method.invoke(invoker);
                 if (valeurRetour.equals("emplist.jsp")) {
-                    setview(valeurRetour);
+                    setView(valeurRetour);
                     dispatch();
                 }
             } catch (Exception e) {
@@ -35,4 +37,13 @@ public class ModelView {
     private void dispatch() {
         // Code pour dispatcher la vue
     }
+
+    public void addItem(String key, Object value) {
+        data.put(key, value);
+    }
+
+    public HashMap<String, Object> getData() {
+        return this.data;
+    }
 }
+
